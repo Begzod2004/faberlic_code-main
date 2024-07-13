@@ -1,4 +1,4 @@
-# B2B Project
+# Faberlic Project
 
 ## Project Overview
 
@@ -19,8 +19,8 @@
 #### Create Database
 
 ```bash
->>> create role b2b_db with login password '2404';
->>> create database b2b_db with owner ulov_user;
+>>> create role now with login password '2404';
+>>> create database now with owner ulov_user;
 ```
 
 #### Django install
