@@ -78,6 +78,8 @@ CORS_ALLOWED_ORIGINS = [
     'https://faberliic.uz'
 
 ]
+CORS_ORIGIN_ALLOW_ALL = False  # Updated for security reasons
+
 
 CORS_ALLOW_METHODS = [
     'GET',
@@ -173,8 +175,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ["https://api.faberliic.uz/", "https://faberliic.uz/",]
+CSRF_TRUSTED_ORIGINS = ['https://api.faberlic.uz', 'https://faberliic.uz']
+
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',  
