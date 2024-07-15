@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%tl2ga#4yz3-up58v_c%w$h&oq#8=)100))=uwd3m=54_&8e_0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 # Application definition
@@ -73,13 +73,10 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Replace with the actual origin of your frontend application
     'http://127.0.0.1:8080',
-    'https://faberlick.vercel.app',
-    'https://api.faberliic.uz',
-    'https://faberliic.uz'
-
+    'http://faberliic.uz',
+    "https://api.faberliic.uz", 
+    "https://faberliic.uz"
 ]
-CORS_ORIGIN_ALLOW_ALL = False  # Updated for security reasons
-
 
 CORS_ALLOW_METHODS = [
     'GET',
@@ -121,7 +118,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -168,37 +164,27 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-CSRF_TRUSTED_ORIGINS = ['https://api.faberlic.uz', 'https://faberliic.uz']
-
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',  
-    'https://faberlick.vercel.app',
-]
-
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ["http://faberliic.uz/", "https://faberliic.uz/",]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-REST_FRAMEWORK = {
-    'NON_FIELD_ERRORS_KEY': 'error',
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+REST_FRAMEWORK={
+    'NON_FIELD_ERRORS_KEY':'error',
+        'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    
     )
 }
-
-
-
 
 SPECTACULAR_SETTINGS = {
     'COMPONENT_SPLIT_REQUEST': True,
